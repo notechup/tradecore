@@ -1,0 +1,40 @@
+[project]
+name = "tradecore"
+version = "0.1.0"
+description = "Shared mechanism for systematic trading systems — contracts, bars, plumbing. No policy."
+requires-python = ">=3.12"
+readme = "README.md"
+
+# pydantic is the only runtime dependency, and it should stay that way. Everything in this
+# package is mechanism: message contracts, bar types, adapters and plumbing that several
+# systems can agree on. A dependency that arrives here arrives in every consumer.
+dependencies = [
+    "pydantic>=2.7",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.5",
+    "mypy>=1.10",
+]
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+# Ship the PEP 561 marker. Without it a consumer that installs tradecore from git gets
+# `import-untyped` from mypy for every import of it, which turns a green type check into
+# a red one for reasons that have nothing to do with the consumer's code.
+[tool.setuptools.package-data]
+tradecore = ["py.typed"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
