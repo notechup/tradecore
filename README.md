@@ -15,7 +15,7 @@ secrets and no edge.
 ## Install
 
 ```bash
-pip install "tradecore @ git+https://github.com/notechup/tradecore@v0.3.0"
+pip install "tradecore @ git+https://github.com/notechup/tradecore@v0.4.0"
 ```
 
 Consumers pin a **tag**, not a branch. A backtest whose result goes in a results table has to
@@ -36,6 +36,7 @@ pip install -e ../tradecore
 | `tradecore.contracts` | `TargetPosition`, `OrderIntent`, `Fill`, `RiskEvent`, `Side`, `OrderType`, `RiskEventKind` — pydantic boundary messages |
 | `tradecore.bars` | `DailyBar` (frozen, slotted), `PriceAdjustment` |
 | `tradecore.costs` | `CostModel`, `CostSchedule`, `Liquidity` — US equity fee arithmetic, no rates |
+| `tradecore.data.databento_cost` | `CostProbe`, `estimate_cost`, `dataset_range`, `dataset_condition` — price a Databento pull before buying it; quotes only, no download path, no dataset default |
 | `tradecore.metrics` | `Metrics`, `compute_metrics`, `max_drawdown`, `WarningPolicy` — equity-curve statistics, no thresholds |
 
 ## Development

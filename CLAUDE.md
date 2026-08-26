@@ -48,6 +48,25 @@ missing-argument `TypeError` arrives at the only moment the mistake is still che
 Zero is always available. It just has to be *stated*, because an omitted fee and a zero fee are
 the same number and very different claims.
 
+### The general rule, arrived at three times
+
+Rates were the first case, not the only one. **The parameter that varies per consumer never
+gets a default in this package.** So far:
+
+| Module | Required, never defaulted | What a default would have done |
+|---|---|---|
+| `costs` | every rate in `CostSchedule` | charge one account's fee schedule to another |
+| `metrics` | `warn`, the `WarningPolicy` | apply one system's validation gate to another's result |
+| `data.databento_cost` | `dataset` | quote a plausible dollar figure **for the wrong market** |
+
+Note what those three failures have in common: **none of them is a crash.** Each returns a
+confident, well-formed, wrong answer that reads exactly like a right one. That is the whole
+argument — a default here does not fail loudly in the consumer that forgot it, so the type
+signature has to do the work that review will not.
+
+This is the "share mechanism, never policy" line expressed as a function signature instead of a
+review comment, and it is the only form of it that survives someone not reading this file.
+
 ## Nobody works on this repo for its own sake
 
 There is no roadmap here and there should not be one. This package changes only because a
