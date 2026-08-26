@@ -79,7 +79,9 @@ def test_importing_the_package_pulls_in_no_consumer() -> None:
     """The static check above misses a dependency reached at import time via a third module."""
     import tradecore
     import tradecore.bars
-    import tradecore.contracts  # noqa: F401
+    import tradecore.contracts
+    import tradecore.costs
+    import tradecore.metrics  # noqa: F401
 
     loaded = {name.split(".")[0] for name in sys.modules}
     assert not (loaded & CONSUMERS), (

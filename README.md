@@ -35,6 +35,8 @@ pip install -e ../tradecore
 |---|---|
 | `tradecore.contracts` | `TargetPosition`, `OrderIntent`, `Fill`, `RiskEvent`, `Side`, `OrderType`, `RiskEventKind` — pydantic boundary messages |
 | `tradecore.bars` | `DailyBar` (frozen, slotted), `PriceAdjustment` |
+| `tradecore.costs` | `CostModel`, `CostSchedule`, `Liquidity` — US equity fee arithmetic, no rates |
+| `tradecore.metrics` | `Metrics`, `compute_metrics`, `max_drawdown`, `WarningPolicy` — equity-curve statistics, no thresholds |
 
 ## Development
 
