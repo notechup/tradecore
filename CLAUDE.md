@@ -55,9 +55,11 @@ consumer needs something, and every such change belongs to a numbered wave with 
 
 **The extraction plan is not in this repo** — it lives in the consuming systems' docs
 (`docs/07_SHARED_CORE.md`), where one copy is canonical and the other is a verified replica.
-It deliberately does not live here: it describes both systems, their broker and their phases,
-and this repo is public. **Do not sync it in.** It is the single most likely file to arrive
-here by reflex.
+It deliberately does not live here, and the reason is not that it happens to name things that
+could be redacted: **it is a planning artifact about the consuming systems' roadmaps**, which
+is not shared mechanism under the rule above whatever it names. A redacted copy would not
+serve the purpose that makes anyone want it here. **Do not sync it in.** It is the single most
+likely file to arrive here by reflex.
 
 In practice this means work starts in a consumer's session, where the reason for the change is
 known, and reaches this repo from there.
