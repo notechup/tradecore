@@ -15,7 +15,7 @@ secrets and no edge.
 ## Install
 
 ```bash
-pip install "tradecore @ git+https://github.com/notechup/tradecore@v0.2.0"
+pip install "tradecore @ git+https://github.com/notechup/tradecore@v0.3.0"
 ```
 
 Consumers pin a **tag**, not a branch. A backtest whose result goes in a results table has to
